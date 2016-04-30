@@ -1,5 +1,3 @@
-apply from: "$rootDir/gradle/envConfig.gradle"
-apply from: "$rootDir/gradle/versioning.gradle"
 apply plugin: 'sonar-runner'
 
 sonarRunner {
@@ -16,7 +14,6 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    apply from: "$rootDir/gradle/jacoco.gradle"
     
     ext.compatibilityVersion = '1.6'
     sourceCompatibility = compatibilityVersion

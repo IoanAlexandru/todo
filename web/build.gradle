@@ -1,9 +1,5 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
-apply from: "$rootDir/gradle/functionalTest.gradle"
-apply from: "$rootDir/gradle/publishMaven.gradle"
-apply from: "$rootDir/gradle/sshDeploy.gradle"
-apply from: "$rootDir/gradle/smokeTest.gradle"
 
 dependencies {
     compile project(':repository')
@@ -16,7 +12,6 @@ task createBuildInfoFile << {
     def buildInfoFile = new File("$buildDir/build-info.properties")
     Properties props = new Properties()
     props.setProperty('version', project.version.toString())
-    props.setProperty('timestamp', project.buildTimestamp)
     props.store(buildInfoFile.newWriter(), null)
 }
 
